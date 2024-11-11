@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public float JumpSpeed;
     private SpriteRenderer sr;
 
     public Sprite leftSprite;
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey("w"))
         {
-            newPosition.y += speed;
+            newPosition.y += JumpSpeed;
         }
+        transform.position = newPosition;
     }
 }
