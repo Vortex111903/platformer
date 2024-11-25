@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public bool isGrounded;
     public GameManager gm;
+
+    public AudioSource soundEffect;
+    public AudioClip collect;
     // animation variables
     Animator anim;
     public bool moving;
@@ -19,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent <Animator>();
+        
     }
 
     // Update is called once per frame
@@ -64,6 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             gm.score++;
             Destroy(collision.gameObject);
+            soundEffect.PlayOneShot(collect, .5f);
         }
         if (collision.gameObject.tag.Equals("Spike"))
         {
