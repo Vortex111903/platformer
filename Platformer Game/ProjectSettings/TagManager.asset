@@ -8,6 +8,9 @@ TagManager:
   - Coin
   - Spike
   - Door
+  - Spike 2
+  - Platform
+  - Coin 2
   layers:
   - Default
   - TransparentFX

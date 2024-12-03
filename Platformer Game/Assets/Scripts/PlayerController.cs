@@ -64,9 +64,19 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
+            isGrounded = true;
+        }
         if (collision.gameObject.tag.Equals("Coin"))
         {
             gm.score++;
+            Destroy(collision.gameObject);
+            soundEffect.PlayOneShot(collect, .5f);
+        }
+        if (collision.gameObject.tag.Equals("Coin 2"))
+        {
+            gm.score += 2;
             Destroy(collision.gameObject);
             soundEffect.PlayOneShot(collect, .5f);
         }
@@ -74,7 +84,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(this.gameObject);
             SceneManager.LoadScene(1);
-            
+        } 
+        if(collision.gameObject.tag.Equals("Spike 2"))
+        {
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(3);
         }
         if (collision.gameObject.tag.Equals("Door"))
         {
@@ -87,5 +101,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
+            isGrounded = false;
+        }
+
     }
 }

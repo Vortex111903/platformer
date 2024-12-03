@@ -32,5 +32,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("in end screen");
             finalScoreText.text = "Score: " + score;
         }
+        if (sceneName == "End Screen 2")
+        {
+            Debug.Log("in end screen 2");
+            finalScoreText.text = "Score: " + score;
+        }
+
     }
 }
