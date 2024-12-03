@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         string sceneName = currentScene.name;
 
-        if (sceneName == "End Screen")
+        if (sceneName == "End Screen 1")
         {
             Debug.Log("in end screen");
             finalScoreText.text = "Score: " + score;

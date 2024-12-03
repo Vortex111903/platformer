@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger2 : MonoBehaviour
+public class SceneChanger3 : MonoBehaviour
 {
-   public void StartScene()
+    public void StartScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
     }
 }
