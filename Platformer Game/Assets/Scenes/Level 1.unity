@@ -6319,7 +6319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7ee2f5b243a6049919154445cfb5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.035
+  speed: 0.005
   jumpForce: 17
   isGrounded: 0
   gm: {fileID: 994930446}
