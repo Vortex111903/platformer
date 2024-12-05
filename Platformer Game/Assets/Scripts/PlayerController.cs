@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public bool isGrounded;
     public GameManager gm;
+    public bool hasJumped;
+    public int jumpNumber;
 
     public AudioSource soundEffect;
     public AudioClip collect;
@@ -22,7 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent <Animator>();
-        
     }
 
     // Update is called once per frame
@@ -44,9 +45,15 @@ public class PlayerController : MonoBehaviour
             newScale.x = +currentScale;
             moving = true;
         }
-        if (Input.GetKey("w") && isGrounded)
+        if (Input.GetKeyDown("w") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpNumber=1;
+        }
+        if (jumpNumber == 1 && Input.GetKeyDown("w") && hasJumped)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpNumber = 0;
         }
         if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
         {
@@ -63,10 +70,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ground"))
         {
             isGrounded = true;
+            hasJumped = false;
         }
         if (collision.gameObject.tag.Equals("Platform"))
         {
             isGrounded = true;
+            hasJumped = false;
         }
         if (collision.gameObject.tag.Equals("Coin"))
         {
@@ -100,10 +109,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ground"))
         {
             isGrounded = false;
+            hasJumped = true;
+            
         }
         if (collision.gameObject.tag.Equals("Platform"))
         {
             isGrounded = false;
+            hasJumped = true;
         }
 
     }
