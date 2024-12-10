@@ -103,6 +103,10 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        if (collision.gameObject.tag.Equals("Door 2"))
+        {
+            SceneManager.LoadScene(4);
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
